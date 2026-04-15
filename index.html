@@ -2,26 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kawaii Nana Fan Page</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Kawaii Nana 💖</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <header>
-    <h1>💖 Kawaii Nana 💖</h1>
-    <p>Hey Nana... do you remember?</p>
-  </header>
+<!-- 🌙 NAVBAR -->
+<header class="navbar">
+  <h1 class="logo">💖 Kawaii Nana</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#characters">Characters</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#music">Music</a>
+    <a href="#quotes">Quotes</a>
+  </nav>
+  <button id="themeToggle">🌙</button>
+</header>
 
-  <section class="cards">
+<!-- 🏠 HERO -->
+<section id="home" class="hero">
+  <h2>Hey Nana...</h2>
+  <p>Do you remember the first time we met?</p>
+  <button class="btn">Enter 💌</button>
+</section>
+
+<!-- 👭 SPLIT SECTION -->
+<section class="split">
+  <div class="nana-osaki">
+    <h2>Nana Osaki 🎸</h2>
+  </div>
+  <div class="nana-komatsu">
+    <h2>Nana Komatsu 🌸</h2>
+  </div>
+</section>
+
+<!-- 👤 CHARACTERS -->
+<section id="characters" class="section">
+  <h2>👤 Characters</h2>
+  <div class="card-container">
+
     <div class="card">
-      <h2>Nana Osaki</h2>
-      <p>Punk rock queen 🎸</p>
+      <h3>Nana Osaki</h3>
+      <p>Punk rock queen</p>
     </div>
 
     <div class="card">
-      <h2>Nana Komatsu</h2>
-      <p>Dreamy & romantic 🌸</p>
+      <h3>Nana Komatsu</h3>
+      <p>Dreamy & romantic</p>
     </div>
-  </section>
+
+    <div class="card">
+      <h3>Ren</h3>
+      <p>Guitarist of Trapnest</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🖼️ GALLERY -->
+<section id="gallery" class="section">
+  <h2>🖼️ Gallery</h2>
+  <div class="gallery">
+    <div class="img"></div>
+    <div class="img"></div>
+    <div class="img"></div>
+    <div class="img"></div>
+  </div>
+</section>
+
+<!-- 🎵 MUSIC -->
+<section id="music" class="section">
+  <h2>🎵 Music</h2>
+
+  <div class="music-group blast">
+    <h3>BLAST 🎸</h3>
+    <div class="music-card">Song 1 ▶</div>
+    <div class="music-card">Song 2 ▶</div>
+  </div>
+
+  <div class="music-group trapnest">
+    <h3>Trapnest 🎤</h3>
+    <div class="music-card">Song A ▶</div>
+    <div class="music-card">Song B ▶</div>
+  </div>
+
+</section>
+
+<!-- 💌 QUOTES -->
+<section id="quotes" class="section">
+  <h2>💌 Quotes</h2>
+  <div class="quote-box">
+    <p id="quote">"Hey Nana..."</p>
+    <button onclick="newQuote()">New Quote 🎲</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>💖 Made with love for Nana fans</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
