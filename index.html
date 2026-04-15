@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Kawaii Nana 💖</title>
+
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- 🌸 smooth scrolling -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 
 <body>
@@ -12,36 +20,41 @@
 <!-- 🌙 NAVBAR -->
 <header class="navbar">
   <h1 class="logo">💖 Kawaii Nana</h1>
+
   <nav>
     <a href="#home">Home</a>
     <a href="#characters">Characters</a>
     <a href="#gallery">Gallery</a>
     <a href="#music">Music</a>
-    <a href="#quotes">Quotes</a>
+    <a href="#quotes">Diary</a>
   </nav>
+
   <button id="themeToggle">🌙</button>
 </header>
 
 <!-- 🏠 HERO -->
 <section id="home" class="hero">
   <h2>Hey Nana...</h2>
+  <p class="subtitle">a soft diary of love, memory & music</p>
   <p>Do you remember the first time we met?</p>
   <button class="btn">Enter 💌</button>
 </section>
 
 <!-- 👭 SPLIT SECTION -->
-<section class="split">
+<section class="split" id="characters">
   <div class="nana-osaki">
     <h2>Nana Osaki 🎸</h2>
   </div>
+
   <div class="nana-komatsu">
     <h2>Nana Komatsu 🌸</h2>
   </div>
 </section>
 
 <!-- 👤 CHARACTERS -->
-<section id="characters" class="section">
+<section class="section">
   <h2>👤 Characters</h2>
+
   <div class="card-container">
 
     <div class="card">
@@ -65,6 +78,7 @@
 <!-- 🖼️ GALLERY -->
 <section id="gallery" class="section">
   <h2>🖼️ Gallery</h2>
+
   <div class="gallery">
     <div class="img"></div>
     <div class="img"></div>
@@ -88,16 +102,25 @@
     <div class="music-card">Song A ▶</div>
     <div class="music-card">Song B ▶</div>
   </div>
-
 </section>
 
-<!-- 💌 QUOTES -->
+<!-- 💌 DIARY / QUOTES (UPDATED SYSTEM) -->
 <section id="quotes" class="section">
-  <h2>💌 Quotes</h2>
-  <div class="quote-box">
-    <p id="quote">"Hey Nana..."</p>
-    <button onclick="newQuote()">New Quote 🎲</button>
+  <h2>💌 Diary Entries</h2>
+
+  <!-- 🎀 Character Selector -->
+  <div class="quote-controls">
+    <button onclick="setCharacter('komatsu')">🌸 Nana Komatsu</button>
+    <button onclick="setCharacter('osaki')">🖤 Nana Osaki</button>
   </div>
+
+  <!-- 📓 Quote Display -->
+  <div class="quote-box">
+    <p id="quote">Choose a diary to begin...</p>
+  </div>
+
+  <!-- 💌 New Entry -->
+  <button class="btn" onclick="newQuote()">New Entry 💌</button>
 </section>
 
 <!-- FOOTER -->
