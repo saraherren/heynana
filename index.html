@@ -1,133 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Kawaii Nana 💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>heynana - lost diary shrine</title>
 
-  <!-- 🌸 smooth scrolling -->
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+   MODE BASE LAYER SWITCH
+========================= */
+
+body {
+  margin: 0;
+  transition: all 0.6s ease;
+}
+
+/* 🌸 KOMATSU MODE (DEFAULT) */
+body.komatsu {
+  font-family: "Quicksand", sans-serif;
+  color: #5a3b4d;
+  background: linear-gradient(135deg, #ffd1e8, #fff0f7, #fffafc);
+  overflow-x: hidden;
+}
+
+body.komatsu::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* 🌧️ OSAKI MODE */
+body.osaki {
+  font-family: "Quicksand", sans-serif;
+  color: #e8e8e8;
+  background: linear-gradient(180deg, #0b0f1a, #1a1f33);
+  overflow-x: hidden;
+}
+
+body.osaki::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://i.gifer.com/7VE.gif");
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* noise overlay (both modes) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/noise.png");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* =========================
+   NAVIGATION (2000s SHRINE BAR)
+========================= */
+
+.navbar {
+  margin: 20px;
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 25px;
+
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+}
+
+body.osaki .navbar {
+  background: rgba(20,20,30,0.6);
+  color: white;
+}
+
+.navbar a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+body.komatsu .navbar a { color: #7a4a63; }
+body.osaki .navbar a { color: #d0d0ff; }
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.hero h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 3.4rem;
+}
+
+body.komatsu .hero h1 { color: #ff5fa2; }
+body.osaki .hero h1 { color: #b0c4ff; }
+
+.hero p {
+  opacity: 0.75;
+  font-style: italic;
+}
+
+/* =========================
+   MODE SWITCH BUTTONS
+========================= */
+
+.mode-switch {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.mode-switch button {
+  margin: 5px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+body.komatsu .mode-switch button {
+  background: linear-gradient(90deg, #ff9ccf, #ffd1e8);
+  color: white;
+}
+
+body.osaki .mode-switch button {
+  background: #2a2f4a;
+  color: #d0d0ff;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+}
+
+body.osaki .section {
+  background: rgba(20,20,30,0.6);
+}
+
+/* =========================
+   GUESTBOOK (CORE FEATURE)
+========================= */
+
+.guestbook {
+  font-family: "Courier New", monospace;
+}
+
+.entry {
+  border-bottom: 1px dotted rgba(150,150,150,0.4);
+  padding: 10px 0;
+}
+
+.entry span {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* mood stamps */
+body.komatsu .section::before {
+  content: "🍓 🐻 🍓 diary shrine";
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  opacity: 0.6;
+}
+
+body.osaki .section::before {
+  content: "🌧️ tokyo rain archive 🌧️";
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+</style>
 </head>
 
-<body>
+<body class="komatsu">
 
-<!-- 🌙 NAVBAR -->
-<header class="navbar">
-  <h1 class="logo">💖 Kawaii Nana</h1>
+<!-- NAV -->
+<div class="navbar">
+  <div><b>heynana</b></div>
+  <div>
+    <a href="#">home</a>
+    <a href="#">diary</a>
+    <a href="#">gallery</a>
+    <a href="#">music</a>
+  </div>
+</div>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#characters">Characters</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#music">Music</a>
-    <a href="#quotes">Diary</a>
-  </nav>
+<!-- HERO -->
+<div class="hero">
+  <h1>heynana shrine</h1>
+  <p>a forgotten internet diary from another time</p>
 
-  <button id="themeToggle">🌙</button>
-</header>
+  <div class="mode-switch">
+    <button onclick="setMode('komatsu')">🌸 Komatsu Mode</button>
+    <button onclick="setMode('osaki')">🌧️ Osaki Mode</button>
+  </div>
+</div>
 
-<!-- 🏠 HERO -->
-<section id="home" class="hero">
-  <h2>Hey Nana...</h2>
-  <p class="subtitle">a soft diary of love, memory & music</p>
-  <p>Do you remember the first time we met?</p>
-  <button class="btn">Enter 💌</button>
-</section>
+<!-- GUESTBOOK -->
+<div class="section guestbook">
 
-<!-- 👭 SPLIT SECTION -->
-<section class="split" id="characters">
-  <div class="nana-osaki">
-    <h2>Nana Osaki 🎸</h2>
+  <h2>guestbook</h2>
+
+  <div class="entry">
+    <p>omg i love ren ❤️ visit my page!!</p>
+    <span>2006.04.18</span>
   </div>
 
-  <div class="nana-komatsu">
-    <h2>Nana Komatsu 🌸</h2>
-  </div>
-</section>
-
-<!-- 👤 CHARACTERS -->
-<section class="section">
-  <h2>👤 Characters</h2>
-
-  <div class="card-container">
-
-    <div class="card">
-      <h3>Nana Osaki</h3>
-      <p>Punk rock queen</p>
-    </div>
-
-    <div class="card">
-      <h3>Nana Komatsu</h3>
-      <p>Dreamy & romantic</p>
-    </div>
-
-    <div class="card">
-      <h3>Ren</h3>
-      <p>Guitarist of Trapnest</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- 🖼️ GALLERY -->
-<section id="gallery" class="section">
-  <h2>🖼️ Gallery</h2>
-
-  <div class="gallery">
-    <div class="img"></div>
-    <div class="img"></div>
-    <div class="img"></div>
-    <div class="img"></div>
-  </div>
-</section>
-
-<!-- 🎵 MUSIC -->
-<section id="music" class="section">
-  <h2>🎵 Music</h2>
-
-  <div class="music-group blast">
-    <h3>BLAST 🎸</h3>
-    <div class="music-card">Song 1 ▶</div>
-    <div class="music-card">Song 2 ▶</div>
+  <div class="entry">
+    <p>nana osaki changed my life fr</p>
+    <span>2007.09.03</span>
   </div>
 
-  <div class="music-group trapnest">
-    <h3>Trapnest 🎤</h3>
-    <div class="music-card">Song A ▶</div>
-    <div class="music-card">Song B ▶</div>
-  </div>
-</section>
-
-<!-- 💌 DIARY / QUOTES (UPDATED SYSTEM) -->
-<section id="quotes" class="section">
-  <h2>💌 Diary Entries</h2>
-
-  <!-- 🎀 Character Selector -->
-  <div class="quote-controls">
-    <button onclick="setCharacter('komatsu')">🌸 Nana Komatsu</button>
-    <button onclick="setCharacter('osaki')">🖤 Nana Osaki</button>
+  <div class="entry">
+    <p>does anyone else think about tokyo at night...?</p>
+    <span>2008.01.22</span>
   </div>
 
-  <!-- 📓 Quote Display -->
-  <div class="quote-box">
-    <p id="quote">Choose a diary to begin...</p>
+  <div class="entry">
+    <p>i miss when everything felt like this anime</p>
+    <span>2009.06.21</span>
   </div>
 
-  <!-- 💌 New Entry -->
-  <button class="btn" onclick="newQuote()">New Entry 💌</button>
-</section>
+</div>
 
-<!-- FOOTER -->
-<footer>
-  <p>💖 Made with love for Nana fans</p>
-</footer>
+<!-- DIARY SECTION -->
+<div class="section">
+  <h2>diary fragments</h2>
 
-<script src="script.js"></script>
+  <p>“some memories feel like they were written in a different version of me.”</p>
+
+  <p>“i still check pages that don’t exist anymore.”</p>
+</div>
+
+<!-- JS MODE SWITCH -->
+<script>
+function setMode(mode) {
+  document.body.className = mode;
+  localStorage.setItem("heynana-mode", mode);
+}
+
+window.onload = () => {
+  const saved = localStorage.getItem("heynana-mode");
+  if (saved) document.body.className = saved;
+};
+</script>
+
 </body>
 </html>
